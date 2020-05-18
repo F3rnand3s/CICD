@@ -1,31 +1,17 @@
+kind: pipeline
 name: default
 
-kind: pipeline
-type: docker
-
 steps:
-- name: backend
-  image: golang
+- name: redis
+  image: redis
+  detach: true
+  pull: if-not-exists
+
+- name: test
+  image: redis
+  pull: if-not-exists
   commands:
-    - go get
-    - go build
-    - go test
-
-- name: frontend
-  image: node:6
-  commands:
-    - npm install
-    - npm test
-
-- name: publish
-  image: plugins/docker
-  settings:
-    repo: octocat/hello-world
-    tags: [ 1, 1.1, latest ]
-    registry: index.docker.io
-
-- name: notify
-  image: plugins/slack
-  settings:
-    channel: developers
-    username: drone
+  - sleep 5
+  - redis-cli -h redis ping
+  - redis-cli -h redis set FOO bar
+  - redis-cli -h redis get FOO
