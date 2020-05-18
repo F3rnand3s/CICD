@@ -1,0 +1,25 @@
+{
+  "name": "dockerNodeJS-test",
+  "version": "1.0.0",
+  "description": "Trying to run a docker image along with a simple nodeJS app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F3rnand3s/dockerNodeJS-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/F3rnand3s/dockerNodeJS-test/issues"
+  },
+  "homepage": "https://github.com/F3rnand3s/dockerNodeJS-test#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
