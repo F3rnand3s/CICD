@@ -25,9 +25,9 @@ RUN /root/.nvm/versions/node/v${NODE_VERSION}/bin/npm install  leasot@latest -g
 #Importing Node App
 WORKDIR /usr/app
 COPY package*.json ./ 
-RUN npm install
-COPY . .
-CMD ["npm", "start"]
+# RUN npm install
+# COPY . .
+# CMD ["npm", "start"]
 
 
 # EXPOSE 3000
