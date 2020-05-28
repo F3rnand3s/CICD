@@ -10,21 +10,22 @@ COPY default /etc/nginx/sites-available/default
 # Read permissions to index.html
 RUN chmod +r /usr/share/nginx/html/index.html
 
-RUN apt-get update
-RUN apt-get -y install curl gnupg
-RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash -
-RUN apt-get -y install nodejs
+# RUN apt-get update
+# RUN apt-get -y install curl gnupg
+# RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash -
+# RUN apt-get -y install nodejs
 
 #Importing Node App
 WORKDIR /usr/app
 COPY package*.json ./ 
 RUN npm install
 COPY . .
+CMD ["npm", "start"]
+
 
 # EXPOSE 3000
 EXPOSE 80
 
-CMD ["npm", "start"]
 
 
 
