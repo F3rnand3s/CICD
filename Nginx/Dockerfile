@@ -22,10 +22,11 @@ RUN npm install
 COPY . .
 
 # EXPOSE 3000
+EXPOSE 80
 
 CMD ["npm", "start"]
 
-EXPOSE 80
+
 
 # 'nginx -g daemon off' will run as default command when any container is run that uses the image that was built using this Dockerfile
 # CMD ["nginx", "-g". "daemon off;"]
