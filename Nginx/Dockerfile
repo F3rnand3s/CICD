@@ -2,7 +2,7 @@
 FROM nginx:latest
 
 # Adding costum index.html
-ADD https://github.com/F3rnand3s/CICD/blob/master/Nginx/index.html /usr/share/nginx/html/
+# ADD $PWD/index.html /usr/share/nginx/html/
 
 # Read permissions to index.html
 RUN chmod +r /usr/share/nginx/html/index.html
