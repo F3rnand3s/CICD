@@ -2,8 +2,10 @@
 FROM nginx:latest
 
 # Adding costum index.html
-# ADD https://qualquercoisa /usr/share/nginx/html/
 COPY index.html /usr/share/nginx/html
+
+# Adding costum nginx.conf
+# COPY nginx.conf /etc/nginx/nginx.conf
 
 # Read permissions to index.html
 RUN chmod +r /usr/share/nginx/html/index.html
