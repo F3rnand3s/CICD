@@ -4,8 +4,8 @@ FROM nginx:latest
 # Adding costum index.html
 COPY index.html /usr/share/nginx/html
 
-# Adding costum nginx.conf
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Adding costum default
+COPY default /etc/nginx/sites-available/default
 
 # Read permissions to index.html
 RUN chmod +r /usr/share/nginx/html/index.html
