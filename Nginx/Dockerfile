@@ -2,7 +2,8 @@
 FROM nginx:latest
 
 # Adding costum index.html
-# ADD $PWD/index.html /usr/share/nginx/html/
+# ADD https://qualquercoisa /usr/share/nginx/html/
+COPY index.html /usr/share/nginx/html
 
 # Read permissions to index.html
 RUN chmod +r /usr/share/nginx/html/index.html
