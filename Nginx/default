@@ -51,6 +51,10 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
+	location /redirect {
+		proxy_pass http://localhost:3000;
+	}
+
 	# pass PHP scripts to FastCGI server
 	#
 	#location ~ \.php$ {

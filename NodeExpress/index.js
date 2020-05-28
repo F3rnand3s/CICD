@@ -9,4 +9,8 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
+app.get('/users', (req, res) => {
+    res.send('You just hit express at :3000/users');
+});
+
 app.listen(PORT, HOST);
