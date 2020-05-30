@@ -1,5 +1,4 @@
 pipeline {
-    agent { docker { image 'docker:latest --privileged' } }
     stages {
         stage('Setup') {
           steps {
@@ -9,6 +8,7 @@ pipeline {
         }
 
         stage('Build') {
+          agent { docker { image 'node:latest' } }
           steps {
             echo 'Welcome to the Build Stage!'
           }
