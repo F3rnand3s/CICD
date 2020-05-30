@@ -1,10 +1,25 @@
 pipeline {
     agent { docker { image 'maven:3.3.3' } }
     stages {
-        stage('build') {
-            steps {
-                sh 'mvn --version'
-            }
+        stage('Setup') {
+          steps {
+            echo 'Welcome to the Setup Stage!'
+            sh 'pwd'
+            sh 'ls -la'
+          }
+        }
+
+        stage('Build') {
+          steps {
+            echo 'Welcome to the Build Stage!'
+          }
+        }
+
+        stage('Output') {
+          steps {
+            echo 'Welcome to the Output Stage!'
+          }
         }
     }
 }
+
