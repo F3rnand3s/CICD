@@ -1,16 +1,16 @@
-agent {
-    node {label 'labelName'}
-    docker {
-        image 'maven:3-alpine'
-        label 'my-defined-label'
-        args  '-v /tmp:/tmp'
-    }
-}
+pipeline {
+    agent any
     stages {
-        stage('build') {
-            steps {
-                sh 'ls -la'
-            }
+        stage('SCM Checkout'){
+          steps {
+            git 'https://github.com/F3rnand3s/jenkins-test'
+          }
+        }
+        
+        stage('Test') {
+          steps {
+            echo 'Hello World!'
+          }
         }
     }
 }
