@@ -1,18 +1,10 @@
 pipeline {
-    agent { 
-      dockerfile true
-    }
+    agent { docker { image 'node:6.3' } }
     stages {
-        stage('SCM Checkout'){
-          steps {
-            git 'https://github.com/F3rnand3s/CICD'
-          }
-        }
-        
-        stage('Test') {
-          steps {
-            echo 'Hello World!'
-          }
+        stage('build') {
+            steps {
+                sh 'npm --version'
+            }
         }
     }
 }
