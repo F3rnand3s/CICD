@@ -1,11 +1,11 @@
 pipeline {
     agent { 
-      dockerfile any
+      dockerfile true
     }
     stages {
         stage('SCM Checkout'){
           steps {
-            git 'https://github.com/F3rnand3s/CICD'
+            git 'https://github.com/F3rnand3s/jenkins-test'
           }
         }
         
