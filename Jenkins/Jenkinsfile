@@ -21,7 +21,7 @@ pipeline {
           steps {
             echo 'Welcome to the Build Nginx Stage!'
             sh 'pwd'
-            sh 'docker-compose up .'
+            sh 'docker-compose up'
             sh 'docker-compose down'
           }
         }
