@@ -1,14 +1,14 @@
 pipeline {
-  agent none
+  agent any
     stages {
         stage('Setup') {
           steps {
             echo 'Welcome to the Setup Stage!'
+            sh 'docker ps -a'
           }
         }
 
         stage('Build') {
-          agent { docker { image 'node:latest' } }
           steps {
             echo 'Welcome to the Build Stage!'
           }
