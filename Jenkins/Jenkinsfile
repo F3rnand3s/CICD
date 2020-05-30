@@ -11,8 +11,8 @@ pipeline {
         stage('Build APP') {
           steps {
             echo 'Welcome to the Build Stage!'
-            cd app
-            pwd
+            sh 'cd app'
+            sh 'pwd'
             // sh 'docker build -t app:jenkins .'
             // sh 'docker rmi app:jenkins'
           }
