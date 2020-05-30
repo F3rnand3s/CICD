@@ -4,6 +4,7 @@ pipeline {
         stage('Setup') {
           steps {
             echo 'Welcome to the Setup Stage!'
+            sh 'pwd'
             sh 'ls -la'
           }
         }
