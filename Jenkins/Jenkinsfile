@@ -3,19 +3,19 @@ pipeline {
     stages {
         stage('Setup') {
           steps {
-            echo 'Hello World!'
+            echo 'Welcome to the Setup Stage!'
           }
         }
 
         stage('Build') {
           steps {
-            echo 'Hello World!'
+            echo 'Welcome to the Build Stage!'
           }
         }
-        
+
         stage('Output') {
           steps {
-            echo 'Hello World!'
+            echo 'Welcome to the Output Stage!'
           }
         }
     }
