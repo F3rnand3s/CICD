@@ -1,8 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
-          agent { docker { image 'maven:3.3.3' } }
+        stage('Setup') {
+          steps {
+            echo 'Hello World!'
+          }
+        }
+
+        stage('Build') {
+          steps {
+            echo 'Hello World!'
+          }
+        }
+        
+        stage('Output') {
           steps {
             echo 'Hello World!'
           }
