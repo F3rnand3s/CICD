@@ -4,7 +4,7 @@ pipeline {
         stage('Setup') {
           steps {
             echo 'Welcome to the Setup Stage!'
-            sh 'docker ps -a'
+            sh 'sudo docker ps -a'
           }
         }
 
