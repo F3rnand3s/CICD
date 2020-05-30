@@ -5,6 +5,8 @@ pipeline {
           steps {
             echo 'Welcome to the Setup Stage!'
             sh 'ls -la'
+            sh 'rm -rf *'
+            sh 'ls -la'
           }
         }
 
