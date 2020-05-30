@@ -1,10 +1,10 @@
 pipeline {
-    agent { docker { image 'docker:latest' } }
+    agent { docker { image 'docker:latest --privileged' } }
     stages {
         stage('Setup') {
           steps {
             echo 'Welcome to the Setup Stage!'
-            sh 'sudo docker ps -a'
+            sh 'docker ps -a'
           }
         }
 
