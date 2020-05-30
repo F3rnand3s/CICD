@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-      dockercompose true
+      docker-compose true
     }
     stages {
         stage('SCM Checkout'){
