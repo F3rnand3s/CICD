@@ -4,7 +4,7 @@ pipeline {
         stage('Setup') {
           steps {
             echo 'Welcome to the Setup Stage!'
-            sh 'docker-compose -version'
+            // sh 'docker-compose -version'
             sh 'ls -la'
           }
         }
@@ -18,18 +18,18 @@ pipeline {
           }
         }
 
-        stage('Build Nginx+APP') {
-          steps {
-            echo 'Welcome to the Build Nginx Stage!'
-            sh 'pwd'
-            sh 'docker-compose up -d'
-            sh 'docker-compose down'
-          }
-        }
+        // stage('Build Nginx+APP') {
+        //   steps {
+        //     echo 'Welcome to the Build Nginx Stage!'
+        //     sh 'pwd'
+        //     sh 'docker-compose up -d'
+        //     sh 'docker-compose down'
+        //   }
+        // }
 
-        stage('Output') {
+        stage('Testing') {
           steps {
-            echo 'Welcome to the Output Stage!'
+            echo 'Welcome to the Testing Stage!'
           }
         }
 
