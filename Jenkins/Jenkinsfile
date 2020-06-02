@@ -13,7 +13,7 @@ pipeline {
             echo 'Welcome to the Build APP Stage!'
             sh 'pwd'
             sh 'docker build -t app:jenkins ./app'
-            sh 'docker rmi app:jenkins'
+            // sh 'docker rmi app:jenkins'
           }
         }
 
