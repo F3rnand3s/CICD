@@ -1,14 +1,14 @@
 pipeline {
   agent any
     stages {
-        stage('SCM Checkout'){
+        stage('Setup') {
           steps {
-            echo 'Welcome to the SCM Checkout'
-            git 'https://github.com/F3rnand3s/jenkins-test'
+            echo 'Welcome to the Setup Stage!'
+            sh 'ls -la'
           }
         }
 
-        stage('Build: APPs Dockerfile') {
+        stage('Build APP') {
           steps {
             echo 'Welcome to the Build APP Stage!'
             sh 'pwd'
@@ -17,7 +17,7 @@ pipeline {
           }
         }
 
-        stage('Build: docker-compose (Nginx + App)') {
+        stage('Build Nginx+APP') {
           steps {
             echo 'Welcome to the Build Nginx Stage!'
             sh 'pwd'
