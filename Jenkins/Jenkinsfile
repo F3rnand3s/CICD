@@ -1,11 +1,9 @@
 pipeline {
   agent any
     stages {
-        stage('Setup') {
+        stage('SCM Checkout'){
           steps {
-            echo 'Welcome to the Setup Stage!'
-            // sh 'docker-compose -version'
-            sh 'ls -la'
+            git 'https://github.com/F3rnand3s/jenkins-test'
           }
         }
 
