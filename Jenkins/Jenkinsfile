@@ -1,34 +1,43 @@
 pipeline {
   agent any
     stages {
-        stage('Setup') {
+        stage('SCM Checkout'){
           steps {
-            echo 'Welcome to the Setup Stage!'
-            sh 'ls -la'
+            git 'https://github.com/F3rnand3s/jenkins-test'
           }
         }
 
+        // stage('Docker Images Setup') {
+        //   steps {
+        //     sh 'docker build -t app:jenkins ./app'
+        //     sh 'docker build -t nginx:jenkins ./nginx'
+        //   }
+        // }
+
         stage('Build APP') {
           steps {
+            sh 'git clone -b development --single-branch https://github.com/F3rnand3s/CICD'
             echo 'Welcome to the Build APP Stage!'
             sh 'pwd'
-            sh 'docker build -t app:jenkins ./app'
+            sh 'ls -la '
+            sh 'docker build -t app:jenkins CICD/app/.'
             sh 'docker rmi app:jenkins'
           }
         }
 
-        stage('Build Nginx+APP') {
+        stage('Build nginx image') {
           steps {
-            echo 'Welcome to the Build Nginx Stage!'
+            echo 'Welcome to the Build nginx Stage!'
             sh 'pwd'
-            sh 'docker-compose up -d'
-            sh 'docker-compose down'
+            sh 'ls -la '
+            sh 'docker build -t nginx:jenkins CICD/nginx/.'
+            sh 'docker rmi nginx:jenkins'
           }
         }
 
-        stage('Output') {
+        stage('Testing') {
           steps {
-            echo 'Welcome to the Output Stage!'
+            echo 'Welcome to the Testing Stage!'
           }
         }
 
