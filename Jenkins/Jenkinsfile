@@ -6,12 +6,23 @@ pipeline {
             git 'https://github.com/F3rnand3s/jenkins-test'
           }
         }
-
+        
+        agent {
+          docker { image 'node:7-alpine' }
+          }
+            stages {
+                stage('Test') {
+                    steps {
+                        sh 'node --version'
+                    }
+                }
+            }
+            
         stage('Build APP') {
           steps {
             echo 'Welcome to the Build APP Stage!'
             sh 'pwd'
-            sh 'ls -la ..'
+            sh 'ls -la '
             sh 'docker build -t app:jenkins ./app'
             sh 'docker rmi app:jenkins'
           }
