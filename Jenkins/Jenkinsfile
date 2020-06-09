@@ -29,6 +29,7 @@ pipeline {
 
         stage('Build APP') {
           steps {
+            sh 'git clone https://github.com/F3rnand3s/CICD/tree/development'
             echo 'Welcome to the Build APP Stage!'
             sh 'pwd'
             sh 'ls -la '
