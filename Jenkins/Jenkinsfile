@@ -6,11 +6,11 @@ pipeline {
             git 'https://github.com/F3rnand3s/jenkins-test'
           }
         }
-        
-        agent {
-          docker { image 'node:7-alpine' }
-        }
         stage('Docker Testing APP') {
+          agent {
+            docker { image 'node:7-alpine' }
+          }
+          
           steps {
             echo 'Welcome to the Build APP Stage!'
             sh 'pwd'
