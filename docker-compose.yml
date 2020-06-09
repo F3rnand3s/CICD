@@ -1,11 +1,16 @@
----
-version: '2'
-
-services: 
-  app: 
-    build: app
-  
-  proxy:
-    build: proxy
-    ports: 
+version: '3'
+services:
+  app:
+    build: './app'
+    ports:
+      - "3000:3000"
+      
+  nginx:
+    build: './proxy'
+    ports:
       - "8088:8080"
+    volumes:
+      - ./app/public:/srv/www/static
+      # - ./default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
