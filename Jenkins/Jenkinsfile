@@ -33,8 +33,7 @@ pipeline {
             echo 'Welcome to the Build APP Stage!'
             sh 'pwd'
             sh 'ls -la '
-            sh 'cd CICD/app'
-            sh 'docker build -t app:jenkins .'
+            sh 'docker build -t app:jenkins CICD/app/.'
             sh 'docker rmi app:jenkins'
           }
         }
