@@ -42,7 +42,8 @@ pipeline {
           steps {
             echo 'Welcome to the Build nginx Stage!'
             sh 'pwd'
-            sh 'docker build -t nginx:jenkins ./nginx'
+            sh 'ls -la '
+            sh 'docker build -t nginx:jenkins CICD/nginx/.'
             sh 'docker rmi nginx:jenkins'
           }
         }
