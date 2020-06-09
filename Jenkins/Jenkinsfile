@@ -9,7 +9,7 @@ pipeline {
 
         stage('Docker Images Setup') {
           steps {
-            sh 'docker build -t app:jenkins ./app'
+            sh 'docker build -t app:jenkins /app'
             sh 'docker build -t nginx:jenkins ./nginx'
           }
         }
