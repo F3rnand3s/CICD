@@ -8,4 +8,4 @@ services:
   proxy:
     build: proxy
     ports: 
-      - "8088:80"
+      - "8088:8080"
