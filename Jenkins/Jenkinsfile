@@ -14,19 +14,6 @@ pipeline {
         //   }
         // }
 
-        // stage('Docker Testing APP') {
-        //   agent {
-        //     docker { image 'node:7-alpine' }
-        //   }
-        //   steps {
-        //     echo 'Welcome to the Build APP Stage!'
-        //     sh 'pwd'
-        //     sh 'ls -la '
-        //     sh 'docker build -t app:jenkins ./app'
-        //     sh 'docker rmi app:jenkins'
-        //   }
-        // }
-
         stage('Build APP') {
           steps {
             sh 'git clone -b development --single-branch https://github.com/F3rnand3s/CICD'
