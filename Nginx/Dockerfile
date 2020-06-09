@@ -1,6 +1,8 @@
 FROM nginx:latest
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+#diff from docker-compose \/
+COPY nginx.conf /etc/nginx/nginx.conf
+
 COPY ../app/public /srv/www/static
 
 WORKDIR /
