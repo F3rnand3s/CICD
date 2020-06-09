@@ -1,23 +1,11 @@
 FROM nginx:latest
 
-#diff from docker-compose \/
-COPY nginx.conf /etc/nginx/nginx.conf
+#Delete the Existing default.conf
+RUN rm /etc/nginx/conf.d/default.conf
 
-COPY ../app/public /srv/www/static
+#Copy the custom default.conf to the nginx configuration
+COPY default.conf /etc/nginx/conf.d
 
-WORKDIR /
+# EXPOSE 8080
 
-EXPOSE 8080
-
-RUN chmod +r /usr/share/nginx/html/index.html
-CMD ["nginx", "-g", "daemon off;"]
-
-#   nginx:
-#     image: nginx:latest
-#     ports:
-#       - "8088:8080"
-#     volumes:
-#       - ./app/public:/srv/www/static
-#       - ./default.conf:/etc/nginx/conf.d/default.conf
-#     depends_on:
-#       - app
+#CMD ["nginx", "-g", "daemon off;"]
