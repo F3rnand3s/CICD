@@ -16,14 +16,14 @@ pipeline {
           }
         }
 
-        // stage('Build Nginx+APP') {
-        //   steps {
-        //     echo 'Welcome to the Build Nginx Stage!'
-        //     sh 'pwd'
-        //     sh 'docker-compose up -d'
-        //     sh 'docker-compose down'
-        //   }
-        // }
+        stage('Build nginx image') {
+          steps {
+            echo 'Welcome to the Build nginx Stage!'
+            sh 'pwd'
+            sh 'docker build -t nginx:jenkins ./nginx'
+            sh 'docker rmi nginx:jenkins'
+          }
+        }
 
         stage('Testing') {
           steps {
