@@ -7,25 +7,25 @@ pipeline {
           }
         }
 
-        stage('Docker Images Setup') {
-          steps {
-            sh 'docker build -t app:jenkins ./app'
-            sh 'docker build -t nginx:jenkins ./nginx'
-          }
-        }
-        stage('Docker Testing APP') {
-          agent {
-            docker { image 'node:7-alpine' }
-          }
+        // stage('Docker Images Setup') {
+        //   steps {
+        //     sh 'docker build -t app:jenkins ./app'
+        //     sh 'docker build -t nginx:jenkins ./nginx'
+        //   }
+        // }
 
-          steps {
-            echo 'Welcome to the Build APP Stage!'
-            sh 'pwd'
-            sh 'ls -la '
-            sh 'docker build -t app:jenkins ./app'
-            sh 'docker rmi app:jenkins'
-          }
-        }
+        // stage('Docker Testing APP') {
+        //   agent {
+        //     docker { image 'node:7-alpine' }
+        //   }
+        //   steps {
+        //     echo 'Welcome to the Build APP Stage!'
+        //     sh 'pwd'
+        //     sh 'ls -la '
+        //     sh 'docker build -t app:jenkins ./app'
+        //     sh 'docker rmi app:jenkins'
+        //   }
+        // }
 
         stage('Build APP') {
           steps {
