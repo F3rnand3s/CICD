@@ -4,5 +4,6 @@ FROM nginx:latest
 # COPY proxy.conf /etc/nginx/conf.d/
 
 #config 
-COPY ./default.conf /etc/nginx/nginx.conf
+COPY ./default.conf /etc/nginx/conf.d/default.conf
 #                   /etc/nginx/conf.d/default.conf
+#                   /etc/nginx/nginx.conf
