@@ -1,9 +1,14 @@
 pipeline {
+  environment {
+    registry = "https://github.com/F3rnand3s/CICD"
+    registryCredential = "docker-creds"
+    dockerImage ''
+  }
   agent any
     stages {
         stage('SCM Checkout'){
           steps {
-            git 'https://github.com/F3rnand3s/jenkins-test'
+            git 'https://github.com/F3rnand3s/CICD'
           }
         }
 
