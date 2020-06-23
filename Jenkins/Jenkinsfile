@@ -16,12 +16,32 @@ node {
     }
   }
 
-  stage('Push image') {
+  stage('Push app image') {
     docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/app', 'docker-creds') {
       app.push("${env.BUILD_NUMBER}")
       app.push("latest")
     }
-    echo "Pushing Docker image to DockerHub"
+    echo "Pushing app Docker image to DockerHub"
+  }
+
+  //*********************************************
+
+  stage('Build nginx') {
+    app = docker.build('f3rnand3s/nginx', 'nginx/')
+  }
+
+  stage('Test nginx') {
+    app.inside {
+      echo "Tests passed"
+    }
+  }
+
+  stage('Push nginx image') {
+    docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/nginx', 'docker-creds') {
+      app.push("${env.BUILD_NUMBER}")
+      app.push("latest")
+    }
+    echo "Pushing nginx Docker image to DockerHub"
   }
 
   stage('Clean up') {
