@@ -46,11 +46,16 @@ pipeline {
           }
         }
 
-        stage('Deploy Image!') {
-          steps {
-            echo 'Deploy Image Phase!'
-          }
-        }
+        // stage('Deploy Image!') {
+        //   steps {
+        //     echo 'Deploy Image Phase!'
+        //     script {
+        //       docker.withRegistry( '', registryCredential) {
+        //         dockerImage.push()
+        //       }
+        //     }
+        //   }
+        // }
 
         stage('Cleanup') {
           steps {
