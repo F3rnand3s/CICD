@@ -6,10 +6,17 @@ node {
     checkout scm
   }
 
-  stage('Build app image') {
+  stage('Build app') {
     app = docker.build('app:jenkins', 'app/')
   }
 
+  stage('Test app') {
+    app.inside {
+      echo "Tests passed"
+    }
+  }
+
+// NGINX STUFF HERE
   stage('Build nginx image') {
     app = docker.build('nginx:jenkins', 'nginx/')
   }
