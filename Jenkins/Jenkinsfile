@@ -16,7 +16,5 @@ node {
 
   stage('Clean up') {
     sh 'rm -rf *'
-    sh 'docker rmi app:jenkins'
-    sh 'docker rmi nginx:jenkins'
   }
 }
