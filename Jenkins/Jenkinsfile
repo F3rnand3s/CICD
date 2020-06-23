@@ -1,9 +1,13 @@
 pipeline {
+  environment {
+    registry = "https://github.com/f3rnand3s/CICD"
+    registryCredential = "docker-creds"
+  }
   agent any
     stages {
         stage('SCM Checkout'){
           steps {
-            git 'https://github.com/F3rnand3s/jenkins-test'
+            git 'https://github.com/f3rnand3s/CICD'
           }
         }
 
@@ -16,7 +20,8 @@ pipeline {
 
         stage('Build APP') {
           steps {
-            sh 'git clone -b development --single-branch https://github.com/F3rnand3s/CICD'
+            sh 'rm -rf *'
+            sh 'git clone -b development --single-branch https://github.com/f3rnand3s/CICD'
             echo 'Welcome to the Build APP Stage!'
             sh 'pwd'
             sh 'ls -la '
@@ -40,6 +45,17 @@ pipeline {
             echo 'Welcome to the Testing Stage!'
           }
         }
+
+        // stage('Deploy Image!') {
+        //   steps {
+        //     echo 'Deploy Image Phase!'
+        //     script {
+        //       docker.withRegistry( '', registryCredential) {
+        //         dockerImage.push()
+        //       }
+        //     }
+        //   }
+        // }
 
         stage('Cleanup') {
           steps {
