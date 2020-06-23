@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "https://github.com/F3rnand3s/CICD"
+    registry = "https://github.com/f3rnand3s/CICD"
     registryCredential = "docker-creds"
     // dockerImage = ''
   }
@@ -8,7 +8,7 @@ pipeline {
     stages {
       stage('Cloning Git') {
         steps {
-          git 'https://github.com/F3rnand3s/CICD'
+          git 'https://github.com/f3rnand3s/CICD'
         }
       }
 
