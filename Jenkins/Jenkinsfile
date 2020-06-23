@@ -1,5 +1,6 @@
 node {
   def app
+  def nginx
 
   stage('Clone Repo') {
     checkout scm
@@ -9,7 +10,13 @@ node {
     app = docker.build('app:jenkins', 'app/')
   }
 
+  stage('Build nginx image') {
+    app = docker.build('nginx:jenkins', 'nginx/')
+  }
+
   stage('Clean up') {
     sh 'rm -rf *'
+    sh 'rmi app:jenkins'
+    sh 'rmi nginx:jenkins'
   }
 }
