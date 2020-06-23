@@ -6,6 +6,7 @@ node {
   }
 
   stage('Build app image') {
+    pwd
     app = docker.build('CICD/app')
   }
 }
