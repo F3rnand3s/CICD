@@ -16,7 +16,15 @@ node {
     }
   }
 
-// NGINX STUFF HERE
+  stage('Push image') {
+    docker.withRegistry('https://registry.hub.docker.com', 'docker-creds') {
+      app.push("${env.BUILD_NUMBER}")
+      app.push("latest")
+    }
+    echo "Pushing Docker image to DockerHub"
+  }
+
+  // NGINX STUFF HERE
   stage('Build nginx image') {
     app = docker.build('nginx:jenkins', 'nginx/')
   }
