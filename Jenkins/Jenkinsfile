@@ -2,7 +2,7 @@ pipeline {
   environment {
     registry = "https://github.com/F3rnand3s/CICD"
     registryCredential = "docker-creds"
-    dockerImage = ''
+    // dockerImage = ''
   }
   agent any
     stages {
