@@ -6,7 +6,7 @@ node {
   }
 
   stage('Build app image') {
-    app = docker.build('app:jenkins') + 'app/'
+    app = docker.build('app:jenkins', 'app/')
   }
 
   stage('Clean up') {
