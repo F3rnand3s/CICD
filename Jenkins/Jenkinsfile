@@ -25,6 +25,6 @@ node {
   }
 
   stage('Clean up') {
-    // sh 'rm -rf *'
+    sh 'rm -rf *'
   }
 }
