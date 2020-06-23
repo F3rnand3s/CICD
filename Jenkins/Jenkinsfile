@@ -20,6 +20,7 @@ pipeline {
 
         stage('Build APP') {
           steps {
+            sh 'rm -rf *'
             sh 'git clone -b development --single-branch https://github.com/F3rnand3s/CICD'
             echo 'Welcome to the Build APP Stage!'
             sh 'pwd'
