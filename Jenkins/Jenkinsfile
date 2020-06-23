@@ -35,7 +35,7 @@ pipeline {
             echo 'Welcome to the Build nginx Stage!'
             sh 'pwd'
             sh 'ls -la '
-            echo '$BUILD_NUMBER'
+            echo $BUILD_NUMBER
             sh 'docker build -t nginx:jenkins CICD/nginx/.'
             sh 'docker rmi nginx:jenkins'
           }
