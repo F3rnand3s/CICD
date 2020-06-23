@@ -46,6 +46,12 @@ pipeline {
           }
         }
 
+        stage('Deploy Image!') {
+          steps {
+            echo 'Deploy Image Phase!'
+          }
+        }
+
         stage('Cleanup') {
           steps {
             echo 'Welcome to the Cleanup Stage!'
