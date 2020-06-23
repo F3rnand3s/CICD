@@ -8,6 +8,6 @@ node {
   stage('Build app image') {
     sh 'pwd'
     sh 'ls -la'
-    app = docker.build('CICD/app')
+    app = docker.build('app/')
   }
 }
