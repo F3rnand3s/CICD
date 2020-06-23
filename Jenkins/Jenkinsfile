@@ -7,7 +7,7 @@ node {
   }
 
   stage('Build app') {
-    app = docker.build('app:jenkins', 'app/')
+    app = docker.build('f3rnand3s/app', 'app/')
   }
 
   stage('Test app') {
