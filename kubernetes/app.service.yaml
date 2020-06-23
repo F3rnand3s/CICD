@@ -1,13 +1,18 @@
+# This Service manifest defines:
+# - a load balancer for pods matching label "app: python-hello-world"
+# - exposing the application to the public Internet (type:LoadBalancer)
+# - routes port 80 of the load balancer to the port 8080 of the Pods.
+# Syntax reference https://kubernetes.io/docs/concepts/configuration/overview/
 apiVersion: v1
 kind: Service
 metadata:
- name: nginx-service
- labels:
- app: nginx
+  name: nginx-service
+  labels: 
+  app: nginx
 spec:
- type: NodePort
- ports:
- - port: 80
- nodePort: 30080
- selector:
- app: nginx
+  type: NodePort
+  ports:
+  - port: 80
+  nodePort: 30080
+  selector: 
+  app: nginx
