@@ -13,8 +13,8 @@ node {
   stage('Test app') {
     app.inside {
       dir('app') {
-        sh 'npm cache verify'
-        sh 'npm install'
+        sh 'sudo npm install -g --unsafe-perm=true --allow-root'
+        sh 'npm test'
       }
     }
   }
