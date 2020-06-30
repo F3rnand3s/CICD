@@ -39,7 +39,7 @@ node {
       echo "Testing..."
       dir('nginx') {
         sh 'nginx -v'
-        // sh 'if [ -e /var/run/nginx.pid ]; then echo "nginx is running"; fi'
+        sh 'if [ -e /var/run/nginx.pid ]; then echo "nginx is running"; fi'
         // sh 'systemctl start nginx'
         // sh 'if [ -e /var/run/nginx.pid ]; then echo "nginx is running"; fi'
       }
