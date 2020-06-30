@@ -16,13 +16,13 @@ node {
     }
   }
 
-  stage('Push app image') {
-    docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/app', 'docker-creds') {
-      app.push("${env.BUILD_NUMBER}")
-      app.push("latest")
-    }
-    echo "Pushing app Docker image to DockerHub"
-  }
+  // stage('Push app image') {
+  //   docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/app', 'docker-creds') {
+  //     app.push("${env.BUILD_NUMBER}")
+  //     app.push("latest")
+  //   }
+  //   echo "Pushing app Docker image to DockerHub"
+  // }
 
   //*********************************************
 
@@ -36,13 +36,13 @@ node {
     }
   }
 
-  stage('Push nginx image') {
-    docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/nginx', 'docker-creds') {
-      app.push("${env.BUILD_NUMBER}")
-      app.push("latest")
-    }
-    echo "Pushing nginx Docker image to DockerHub"
-  }
+  // stage('Push nginx image') {
+  //   docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/nginx', 'docker-creds') {
+  //     app.push("${env.BUILD_NUMBER}")
+  //     app.push("latest")
+  //   }
+  //   echo "Pushing nginx Docker image to DockerHub"
+  // }
 
   stage('Clean up') {
     sh 'rm -rf *'
