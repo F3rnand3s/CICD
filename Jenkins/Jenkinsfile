@@ -11,12 +11,24 @@ node {
   }
 
   stage('Test app') {
-    app.inside {
-      dir('app') {
-        sh 'npm install -g --unsafe-perm=true --allow-root'
-        sh 'npm test'
-      }
+        agent {
+        docker { image 'node:7-alpine' }
     }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+
+
+    // app.inside {
+    //   dir('app') {
+    //     sh 'npm install -g --unsafe-perm=true --allow-root'
+    //     sh 'npm test'
+    //   }
+    // }
   }
 
   // stage('Push app image') {
