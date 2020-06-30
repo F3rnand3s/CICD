@@ -12,10 +12,10 @@ node {
 
   stage('Test app') {
     app.inside {
-      sh 'pwd'
-      sh 'ls -la'
-      sh 'cd app'
-      sh 'npm test'
+      dir('app') {
+        sh 'pwd'
+        sh 'npm test'
+      }
     }
   }
 
