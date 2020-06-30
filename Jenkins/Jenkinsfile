@@ -13,8 +13,9 @@ node {
   stage('Test app') {
     app.inside {
       dir('app') {
-        sh 'npm install'
-        sh 'npm test'
+        sh 'pwd'
+        // sh 'npm install'
+        // sh 'npm test'
       }
     }
   }
@@ -30,12 +31,13 @@ node {
   //*********************************************
 
   stage('Build nginx') {
-    app = docker.build('f3rnand3s/nginx', 'nginx/')
+    nginx = docker.build('f3rnand3s/nginx', 'nginx/')
   }
 
   stage('Test nginx') {
-    app.inside {
-      echo "Tests passed"
+    nginx.inside {
+      echo "Testing..."
+      
     }
   }
 
