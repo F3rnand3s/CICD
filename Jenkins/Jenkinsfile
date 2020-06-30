@@ -11,11 +11,20 @@ node {
   }
 
   stage('Test app') {
-    app.inside {
+    agent {
+        docker { image 'node:latest' }
+    }
+    steps {
       dir('app') {
         sh 'npm install'
+        sh 'npm test'
       }
     }
+    // app.inside {
+    //   dir('app') {
+    //     sh 'npm install'
+    //   }
+    // }
   }
 
   // stage('Push app image') {
