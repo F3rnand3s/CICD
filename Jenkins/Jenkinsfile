@@ -12,7 +12,7 @@ node {
 
   stage('Test app') {
     app.inside {
-      echo "Tests passed"
+      sh 'npm test'
     }
   }
 
