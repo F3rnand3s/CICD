@@ -13,10 +13,7 @@ node {
   stage('Test app') {
     app.inside {
       dir('app') {
-        nodejs(nodeJSInstallationName: 'Node 6.x') {
-          sh 'npm config ls'
-          sh 'npm install'
-        }
+        sh 'npm install'
       }
     }
   }
