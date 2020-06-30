@@ -13,6 +13,7 @@ node {
   stage('Test app') {
     app.inside {
       sh 'pwd'
+      sh 'ls -la'
       sh 'npm test'
     }
   }
