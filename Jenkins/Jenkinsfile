@@ -13,7 +13,7 @@ node {
   stage('Test app') {
     app.inside {
       dir('app') {
-        sh 'npm'
+        sh 'npm start'
       }
     }
   }
