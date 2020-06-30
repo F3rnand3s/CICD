@@ -35,14 +35,27 @@ node {
   }
 
   stage('Test nginx') {
-    nginx.inside {
-      echo "Testing..."
-      dir('nginx') {
-        sh 'if [ -e /var/run/nginx.pid ]; then echo "nginx is running"; fi'
-        sh 'systemctl start nginx'
-        sh 'if [ -e /var/run/nginx.pid ]; then echo "nginx is running"; fi'
+    agent {
+      docker {
+        image nginx
       }
     }
+    stages {
+      stage('test') {
+        steps {
+          sh 'nginx -v'
+        }
+      }
+    }
+
+    // nginx.inside {
+    //   echo "Testing..."
+    //   dir('nginx') {
+    //     sh 'if [ -e /var/run/nginx.pid ]; then echo "nginx is running"; fi'
+    //     sh 'systemctl start nginx'
+    //     sh 'if [ -e /var/run/nginx.pid ]; then echo "nginx is running"; fi'
+    //   }
+    // }
   }
 
   // stage('Push nginx image') {
