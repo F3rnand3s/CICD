@@ -13,6 +13,7 @@ node {
   stage('Test app') {
     app.inside {
       dir('app') {
+        sh 'npm cache clean'
         sh 'npm install'
       }
     }
