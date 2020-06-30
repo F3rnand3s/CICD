@@ -13,7 +13,7 @@ node {
   stage('Test app') {
     app.inside {
       dir('app') {
-        sh 'sudo npm install -g --unsafe-perm=true --allow-root'
+        sh 'npm install -g --unsafe-perm=true --allow-root'
         sh 'npm test'
       }
     }
