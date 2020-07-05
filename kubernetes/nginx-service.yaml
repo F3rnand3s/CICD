@@ -11,7 +11,7 @@ spec:
       # targetPort needs to match containerPort of deployment
     #- protocol: TCP #Remove - port se fores usar isto
     - port: 80
-      targetPort: 8080
+      targetPort: 80
       # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
-      # nodePort: 30007
+      nodePort: 30000
