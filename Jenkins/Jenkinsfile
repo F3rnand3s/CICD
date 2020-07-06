@@ -14,7 +14,7 @@ node {
     app.inside {
       dir('app') {
         sh 'pwd'
-        sh 'npm install'
+        sh 'npm install --unsafe-perm'
         sh 'npm test'
       }
     }
