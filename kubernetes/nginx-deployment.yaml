@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: f3rnand3s/nginx-test:1
+        image: f3rnand3s/nginx-test:2
         ports:
         - containerPort: 8080
         env:
