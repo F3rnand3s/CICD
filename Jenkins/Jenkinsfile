@@ -51,6 +51,9 @@ node {
   }
 
   stage('Clean up') {
-    sh 'rm -rf *'
+    sh 'docker rmi app-auto:latest'
+    sh 'docker rmi app-auto:"${env.BUILD_NUMBER}"'
+    sh 'docker rmi nginx-auto:latest'
+    sh 'docker rmi nginx-auto:"${env.BUILD_NUMBER}"'
   }
 }
