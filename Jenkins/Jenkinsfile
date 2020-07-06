@@ -41,7 +41,7 @@ node {
         sh 'nginx -v'
         sh 'pwd'
         sh 'ls -la'
-        echo nginx
+        echo nginx.image()
         sh 'nginx -c /default.conf -t'
       }
     }
