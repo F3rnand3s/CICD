@@ -10,6 +10,15 @@ node {
     app = docker.build('f3rnand3s/app', 'app/')
   }
 
+  stage('docker agent') {
+    agent { 
+      docker { image app }
+    }
+    steps {
+      sh 'ls -la'
+    }
+  }
+  
   stage('Test app') {
     app.inside {
       dir('app') {
