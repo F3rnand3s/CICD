@@ -36,6 +36,7 @@ node {
   stage('Test nginx') {
     nginx.inside {
       echo "Testing..."
+      sh 'ls -la'
       dir('nginx') {
         sh 'nginx -v'
         sh 'pwd'
