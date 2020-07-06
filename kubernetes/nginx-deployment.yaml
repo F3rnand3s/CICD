@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: f3rnand3s/nginx-test:2
+        image: f3rnand3s/nginx-test:3
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         env:
         - name: PORT
-          value: "8080"
+          value: "80"
