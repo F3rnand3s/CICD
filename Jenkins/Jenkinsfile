@@ -15,7 +15,7 @@ node {
       dir('app') {
         sh 'pwd'
         sh 'ls -la'
-        sh 'npm test'
+        sh 'npm install'
       }
     }
   }
