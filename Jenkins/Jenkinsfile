@@ -46,8 +46,8 @@ node {
 
   stage('Push nginx image') {
     docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/nginx-auto', 'docker-creds') {
-      app.push("${env.BUILD_NUMBER}")
-      app.push("latest")
+      nginx.push("${env.BUILD_NUMBER}")
+      nginx.push("latest")
     }
     echo "Pushing nginx Docker image to DockerHub"
   }
