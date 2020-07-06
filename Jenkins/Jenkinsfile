@@ -38,7 +38,7 @@ node {
       echo "Testing..."
       dir('nginx') {
         sh 'nginx -v'
-        sh 'nginx -c default.conf -t'
+        sh 'nginx -c /default.conf -t'
       }
     }
   }
