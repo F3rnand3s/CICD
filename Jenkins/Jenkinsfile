@@ -11,7 +11,7 @@ node {
   }
 
   stage('Test app') {
-    docker.image('f3rnand3s/app').inside('-p 30001:3000'){
+    app.inside {
       dir('app') {
         sh 'npm install --cache /tmp/empty-cache'
         sh 'npm test'
@@ -42,6 +42,7 @@ node {
         sh 'pwd'
         sh 'ls -la'
         sh 'nginx -c /default.conf -t'
+        echo nginx
       }
     }
   }
