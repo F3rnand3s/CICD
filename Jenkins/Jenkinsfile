@@ -16,6 +16,7 @@ node {
         sh 'pwd'
         sh 'ls -la'
         sh 'npm install --cache /tmp/empty-cache'
+        sh 'npm test'
       }
     }
   }
