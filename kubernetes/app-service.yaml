@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: app-service
 spec:
-  type: NodePort
+  # type: NodePort
   selector:
     app: app
   ports:
@@ -15,6 +15,6 @@ spec:
       targetPort: 3000
       # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
-      nodePort: 30001
+      # nodePort: 30001
   externalIPs: 
     - 1.2.4.120
