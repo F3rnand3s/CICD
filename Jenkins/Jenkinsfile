@@ -7,7 +7,7 @@ node {
   }
 
   stage('Build app') {
-    app = docker.build('f3rnand3s/app', 'app/')
+    app = docker.build('f3rnand3s/app-auto', 'app/')
   }
 
   stage('Test app') {
@@ -30,7 +30,7 @@ node {
   //*********************************************
 
   stage('Build nginx') {
-    nginx = docker.build('f3rnand3s/nginx', 'nginx/')
+    nginx = docker.build('f3rnand3s/nginx-auto', 'nginx/')
   }
 
   stage('Test nginx') {
