@@ -51,11 +51,11 @@ node {
   }
 
   stage('Clean up') {
-    sh 'docker rmi f3rnand3s/app-auto:latest'
-    sh 'docker rmi registry.hub.docker.com/f3rnand3s/app-auto:latest'
-    sh 'docker rmi registry.hub.docker.com/f3rnand3s/app-auto:"${env.BUILD_NUMBER}"'
-    sh 'docker rmi f3rnand3s/nginx-auto:latest'
-    sh 'docker rmi registry.hub.docker.com/f3rnand3s/nginx-auto:latest'
-    sh 'docker rmi registry.hub.docker.com/f3rnand3s/nginx-auto:"${env.BUILD_NUMBER}"'
+    // sh 'docker rmi f3rnand3s/app-auto:latest'
+    // sh 'docker rmi registry.hub.docker.com/f3rnand3s/app-auto:latest'
+    // sh 'docker rmi registry.hub.docker.com/f3rnand3s/app-auto:"${env.BUILD_NUMBER}"'
+    // sh 'docker rmi f3rnand3s/nginx-auto:latest'
+    // sh 'docker rmi registry.hub.docker.com/f3rnand3s/nginx-auto:latest'
+    // sh 'docker rmi registry.hub.docker.com/f3rnand3s/nginx-auto:"${env.BUILD_NUMBER}"'
   }
 }
