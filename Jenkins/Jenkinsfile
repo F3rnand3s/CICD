@@ -13,8 +13,6 @@ node {
   stage('Test app') {
     app.inside {
       dir('app') {
-        sh 'pwd'
-        sh 'ls -la'
         sh 'npm install --cache /tmp/empty-cache'
         sh 'npm test'
       }
