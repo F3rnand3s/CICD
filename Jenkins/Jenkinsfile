@@ -11,7 +11,7 @@ node {
   }
 
   stage('Test app') {
-    docker.image(app).inside('-p 30001:3000'){
+    docker.image('f3rnand3s/app').inside('-p 30001:3000'){
       dir('app') {
         sh 'npm install --cache /tmp/empty-cache'
         sh 'npm test'
