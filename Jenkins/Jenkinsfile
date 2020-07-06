@@ -11,10 +11,6 @@ node {
   }
 
   stage('Test app') {
-    docker.image('f3rnand3s/app').withRun('-p 31000:3000') 
-        sh 'npm test'
-    }
-
     app.inside {
       dir('app') {
         sh 'pwd'
