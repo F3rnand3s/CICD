@@ -38,8 +38,7 @@ node {
       echo "Testing..."
       dir('nginx') {
         sh 'nginx -v'
-        sh 'pwd'
-        sh 'ls -la'
+        sh 'nginx -c default.conf -t'
       }
     }
   }
