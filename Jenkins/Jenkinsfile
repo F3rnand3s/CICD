@@ -14,8 +14,8 @@ node {
     app.inside {
       dir('app') {
         sh 'pwd'
-        // sh 'npm install'
-        // sh 'npm test'
+        sh 'npm install'
+        sh 'npm test'
       }
     }
   }
