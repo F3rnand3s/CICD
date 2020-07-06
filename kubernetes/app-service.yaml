@@ -9,7 +9,7 @@ spec:
   ports:
       # Port é a port da imagem
       # targetPort needs to match containerPort of deployment
-    - protocol: HTTP #Remove - port se fores usar isto
+    - protocol: TCP #Remove - port se fores usar isto
       port: 3000
       targetPort: 3000
       # Optional field
