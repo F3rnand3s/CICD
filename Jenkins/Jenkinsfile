@@ -15,8 +15,7 @@ node {
       dir('app') {
         sh 'pwd'
         sh 'ls -la'
-        sh 'npm cache clean'
-        sh 'npm install'
+        sh 'npm install --cache /tmp/empty-cache'
       }
     }
   }
