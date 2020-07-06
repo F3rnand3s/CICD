@@ -13,7 +13,7 @@ node {
   stage('Test app') {
     app.inside('-p 30001:3000'){
       dir('app') {
-        sh 'npm install --cache /tmp/empty-cache'
+        sh 'npm install'
         sh 'npm test'
       }
     }
