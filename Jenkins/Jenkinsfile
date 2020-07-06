@@ -11,7 +11,7 @@ node {
   }
 
   stage('Test app') {
-    docker.image(app).withRun('-p 31000:3000') { c ->
+    docker.image('f3rnand3s/app').withRun('-p 31000:3000') { c ->
         sh 'npm test'
     }
 
