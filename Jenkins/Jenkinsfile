@@ -10,6 +10,10 @@ node {
     app = docker.build('f3rnand3s/app-auto', 'app/')
   }
 
+  stage('Build nginx') {
+    nginx = docker.build('f3rnand3s/nginx-auto', 'nginx/')
+  }
+
   stage('Test app') {
     app.inside {
       dir('app') {
@@ -17,20 +21,6 @@ node {
         sh 'npm test'
       }
     }
-  }
-
-  stage('Push app image') {
-    docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/app-auto', 'docker-creds') {
-      app.push("${env.BUILD_NUMBER}")
-      app.push("latest")
-    }
-    echo "Pushing app Docker image to DockerHub"
-  }
-
-  //*********************************************
-
-  stage('Build nginx') {
-    nginx = docker.build('f3rnand3s/nginx-auto', 'nginx/')
   }
 
   stage('Test nginx') {
@@ -42,6 +32,14 @@ node {
         // sh 'nginx -c /etc/nginx/nginx.conf -t'
       }
     }
+  }
+
+  stage('Push app image') {
+    docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/app-auto', 'docker-creds') {
+      app.push("${env.BUILD_NUMBER}")
+      app.push("latest")
+    }
+    echo "Pushing app Docker image to DockerHub"
   }
 
   stage('Push nginx image') {
