@@ -8,6 +8,7 @@ node {
   }
 
   stage('Minikube Rules update') {
+    sh 'kubectl version'
     sh 'kubectl get pods'
   }
 
