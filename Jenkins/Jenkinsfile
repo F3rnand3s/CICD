@@ -60,4 +60,8 @@ node {
     sh "docker rmi registry.hub.docker.com/f3rnand3s/nginx-auto:${env.BUILD_NUMBER}"
     sh 'rm -rf *'
   }
+
+  stage('Minikube Rules update') {
+    sh 'kubectl get pods'
+  }
 }
