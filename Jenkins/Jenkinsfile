@@ -7,10 +7,10 @@ node {
     checkout scm
   }
 
-  stage('Minikube Rules update') {
-    sh 'kubectl version'
-    sh 'kubectl get pods'
-  }
+  // stage('Minikube Rules update') {
+  //   sh 'kubectl version'
+  //   sh 'kubectl get pods'
+  // }
 
   stage('Build app') {
     app = docker.build('f3rnand3s/app-auto', 'app/')
