@@ -2,49 +2,26 @@ node {
   def app
   def nginx
 
-  stage('Clone Repo') {
+  stage('Setup') {
     sh 'rm -rf *'
     checkout scm
   }
 
-  // stage('Minikube Rules update') {
-  //   sh 'kubectl version'
-  //   sh 'kubectl get pods'
-  // }
-
-  stages ('Build Images') {
-    stage ('Build App') {
-      steps {
-        echo 'hello'
-        echo 'world'
-      }
-    }
-    stage ('Build Nginx') {
-      steps {
-        echo 'hello'
-        echo 'world'
-      }
-    }
-  }
   stage('Build Images') {
     app = docker.build('f3rnand3s/app-auto', 'app/')
-  }
-
-  stage('Build nginx') {
     nginx = docker.build('f3rnand3s/nginx-auto', 'nginx/')
   }
 
-  stage('Test app') {
+  stage('Test Images') {
+    echo 'Testing App'
     app.inside {
       dir('app') {
         sh 'npm install --cache /tmp/empty-cache'
         sh 'npm test'
       }
     }
-  }
-
-  stage('Test nginx') {
     nginx.inside {
+      echo 'Testing Nginx'
       dir('nginx') {
         sh 'nginx -v'
         
@@ -54,20 +31,18 @@ node {
     }
   }
 
-  stage('Push app image') {
+  stage('Push Images') {
+    echo "Pushing app Docker image to DockerHub"
     docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/app-auto', 'docker-creds') {
       app.push("${env.BUILD_NUMBER}")
       app.push("latest")
     }
-    echo "Pushing app Docker image to DockerHub"
-  }
 
-  stage('Push nginx image') {
+    echo "Pushing nginx Docker image to DockerHub"
     docker.withRegistry('https://registry.hub.docker.com/f3rnand3s/nginx-auto', 'docker-creds') {
       nginx.push("${env.BUILD_NUMBER}")
       nginx.push("latest")
     }
-    echo "Pushing nginx Docker image to DockerHub"
   }
 
   stage('Clean up') {
