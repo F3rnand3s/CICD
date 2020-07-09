@@ -12,7 +12,21 @@ node {
   //   sh 'kubectl get pods'
   // }
 
-  stage('Build app') {
+  stages ('Build Images') {
+    stage ('Build App') {
+      steps {
+        echo 'hello'
+        echo 'world'
+      }
+    }
+    stage ('Build Nginx') {
+      steps {
+        echo 'hello'
+        echo 'world'
+      }
+    }
+  }
+  stage('Build Images') {
     app = docker.build('f3rnand3s/app-auto', 'app/')
   }
 
