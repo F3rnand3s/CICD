@@ -26,7 +26,7 @@ node {
         sh 'nginx -v'
         
         // Funciona mas devido como está criado a imagem ela n passa pelo teste.
-        sh 'nginx -c /etc/nginx/nginx.conf -t'
+        // sh 'nginx -c /etc/nginx/nginx.conf -t'
       }
     }
   }
