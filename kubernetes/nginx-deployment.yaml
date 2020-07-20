@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: f3rnand3s/nginx-test:4
+        image: f3rnand3s/nginx-test:latest
         ports:
         - containerPort: 80
