@@ -5,3 +5,4 @@ Concourse: ongoing...
 
 handy
  - kubectl apply -f FILENAME.yaml
+k
